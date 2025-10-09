@@ -178,8 +178,7 @@ Verify Last Modified Time
                     }
             });
             if (!response.ok) {
-            	throw new Error(`Error fetching this data: ${response.status} - ${response.statusText
-                }`);
+            	throw new Error(`Error fetching this data: ${response.status} - ${response.statusText}`);
             }
                 
                 const commits = await response.json();
