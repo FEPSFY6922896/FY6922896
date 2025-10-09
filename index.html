@@ -97,8 +97,8 @@
   <hr>
   <h3 id="Abstract">Abstract</h3> 
     <p class="ex1">
-      <pre>
-        idk havent thought of a topic yet
+      <pre id="AbstractContent">
+      idk havent thought of a topic yet
       </pre>
   </p>
 
@@ -111,7 +111,7 @@
   <hr>
   <h3 id="Introduction">Introduction</h3>
   <p class="ex1">
-  <pre>
+  <pre id="IntroductionContent">
   Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an
 intelligent machine through the interaction of an oracle with the machine system, over a sequence of
 learning epochs. A distinctive component in an active system is the querying strategy, used to sample
@@ -127,6 +127,7 @@ learning at each epoch. The process is continued until some stopping criterion h
 reaching a stage where information from the selected instances is contrary to the model, causing the
 classifier confidence to drop, as in Vlachos (2008).
   </pre>
+  </p>
 
 
 
@@ -137,22 +138,24 @@ classifier confidence to drop, as in Vlachos (2008).
     <hr>
     <h3 id="Analysis_and_discussion">Analysis and discussion</h3>
     <p class="ex1">
-    <pre>
+    <pre id="Analysis_and_discussionContent">
+   
     </pre>
     </p>
 
 
-    <!--Refrences section-->
+    <!--References section-->
 
 
     
     <hr>
-    <h3 id="Refrences">Refrences</h3>
+    <h3 id="References">References</h3>
     <p class="ex1">
-    <pre>
+    <pre id="ReferencesContent">
+   
     </pre>
     </p>
- 
+ 	
     <hr>
 
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
@@ -226,10 +229,12 @@ classifier confidence to drop, as in Vlachos (2008).
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
+    const IntroductionCount = displayWordCount("IntroductionContent");
+    const AnalysisCount = displayWordCount("Analysis_and_discussionContent");
+    const AbstractCount = displayWordCount("AbstractContent");
+    const ReferencesCount = displayWordCount("ReferencesContent");
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
+    const totalWordCount = IntroductionCount + AnalysisCount + AbstractCount + ReferencesCount;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
