@@ -160,26 +160,27 @@ classifier confidence to drop, as in Vlachos (2008).
 <div id="last-updated">Loading last update time...</div>
 
 <!--verify button-->
-<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto, paddingL 8px 16px;">
+<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto, padding: 8px 16px;">
 Verify Last Modified Time
 </button>
 
 <script>
 	async function getLastUpdatedTime() {
-    	const username = 'FEPSFY6922896' ;
-        const repo = 'FY6922896' ;
+    	const username = 'FEPSFY6922896';
+        const repo = 'FY6922896';
         
-        const url = `https://api.github.com/repos/$(FEPSFY6922896)/$(FY6922896)/commits` ;
+        const url = `https://api.github.com/repos/$(FEPSFY6922896)/$(FY6922896)/commits`;
         try {
         	const response = await fetch(url, {
             	method: 'GET',
                 headers: {
-                	'Accept' : 'application/vnd.github.v3+json'.
+                	'Accept' : 'application/vnd.github.v3+json',
                     }
             });
             if (!response.ok) {
-            	throw new Error('Error fetching this data: ${response.status} - ${response.statusTe
-                }
+            	throw new Error(`Error fetching this data: ${response.status} - ${response.statusText
+                }`);
+            }
                 
                 const commits = await response.json();
                 if (commits && commits.length > 0) {
