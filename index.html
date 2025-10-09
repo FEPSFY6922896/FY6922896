@@ -169,7 +169,42 @@ Verify Last Modified Time
     	const username = 'FEPSFY6922896' ;
         const repo = 'FY6922896' ;
         
-        const url = `https://api.github.com/repos/$(
+        const url = `https://api.github.com/repos/$(FEPSFY6922896)/$(FY6922896)/commits` ;
+        try {
+        	const response = await fetch(url, {
+            	method: 'GET',
+                headers: {
+                	'Accept' : 'application/vnd.github.v3+json'.
+                    }
+            });
+            if (!response.ok) {
+            	throw new Error('Error fetching this data: ${response.status} - ${response.statusTe
+                }
+                
+                const commits = await response.json();
+                if (commits && commits.length > 0) {
+                	const lastCommitDate = new Date(commits[0].commit.committer.date);
+                    
+                    // Displaying the time on load
+                    document.getElementByID('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+                } else {
+                 	document.getElementById('last-updated').innerText = 'No commits found in the repositry.';
+                }
+            } catch (error) {
+             	console.error('Error fetching the last updated time:', error);
+                document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
+            }
+        }
+        
+        //Function to verify the last update time by re-fetching it from the API
+        async function verifyLastUpdatedTime() {
+        	document.getElemtentById('last-updated').innerText = 'Verifying...';
+            await getLastUpdatedTime();
+            alert("Last modified time has been successfully verified from Github API.");
+        }
+        // Inital load to display the time on page load
+        window.onload = getLastUpdatedTime;
+    </script>
 
 
 
