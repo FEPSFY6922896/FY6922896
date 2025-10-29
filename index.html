@@ -8,7 +8,7 @@
 
   
   <head>
-  <img src="WebBanner2023.png" alt="Banner" width="1200" height="i">
+  <img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
   </head>
 
 
@@ -86,7 +86,7 @@
     <td><a href="#Analysis_and_discussion">Analysis and discussion</a></td>
     </tr>
     <tr>
-    <td><a href="#Refrences">Refrences</a></td>
+    <td><a href="#References">References</a></td>
     </tr>
     </table>
     
@@ -111,14 +111,8 @@
   <hr>
   <h3 id="Introduction">Introduction</h3>
   <p class="ex1">
-  <pre id="IntroductionContent">
-   In the American Air Force, there exists a fleet of fighter jets that display engineering and technology of different generations.
-   The class of fighter jets containing the most advanced and cutting-edge technology/engineering are known as the fifth-generation fighters.
-   These jets are “capable of operating effectively in highly contested combat environments” against the “presence of the most capable current air and ground threats” (Harrigian and Morosko, 2017).
-   Currently in operation fifth-generation aircraft include the F-35B Lightning II, the main subject of this webpage, and the F-22A Raptor, each aircraft belonging to the Air Force and the US Marine Corps respectively.
-   Just to go into some detail, there are many characteristics of these aircrafts that clearly distinguishes them from the older aircrafts: 
-   
-  </pre>
+  <p id="IntroductionContent">
+   In the American Air Force, there exists a fleet of fighter jets that display engineering and technology of different generations. The class of fighter jets containing the most advanced and cutting-edge technology/engineering are known as the fifth-generation fighters. These jets are “capable of operating effectively in highly contested combat environments” against the “presence of the most capable current air and ground threats” <a href="#Fifth generation definition"><b>(Harrigian and Morosko, 2017)</b></a>. Currently in operation fifth-generation aircraft include the F-35B Lightning II, the main subject of this webpage, and the F-22A Raptor, each aircraft belonging to the Air Force and the US Marine Corps respectively. Just to go into some detail, there are many characteristics of these aircrafts that clearly distinguishes them from the older aircrafts: “multi-spectral low observable (LO) design features” make detection even more difficult with even the most advanced detection technology, “integrated avionics”<a href="#Fifth generation definition"><b>(Harrigian and Morosko, 2017)</b></a> which simultaneously manages several systems and data to provide real time communication and aerial dominance, although some fourth-generation fighters have thrust vectoring most fifth-generation aircrafts improve the use of it to achieve supermanoeuvrability. These are just some of the key characteristics to be named, which will be further explained in detail in the analysis and discussion section.  The F35b lightning is arguably the most advanced fighter jet up to date and is the latest operational American fighter jet. It’s classified as a fifth-generation aircraft capable of climbing to speeds of Mach 1.6 <a href="#Top speed of F35B"><b>(Air, 2024)</b></a>, which is 1.6 times the speed of sound! It’s equipped with a single engine and VTOL (Vertical Take Off and Landing) system which allows the aircraft to take off from short runaways and land like a helicopter, this is why you’ll see the U.S. Marine Corps utilising them as they can operate from assault ships despite the short runway length. 
   </p>
 
 
@@ -130,9 +124,8 @@
    <hr>
    <h3 id="Analysis_and_discussion">Analysis and discussion</h3>
    <p class="ex1">
-   <pre id="Analysis_and_discussionContent">
-   
-   </pre>
+   <p id="Analysis_and_discussionContent">
+   hello
    </p>
 
 
@@ -143,11 +136,12 @@
    <hr>
    <h3 id="References">References</h3>
    <p class="ex1">
-   <pre id="ReferencesContent">
-   
-   </pre>
-   </p>
- 	
+   <p>
+   <h4 id="Fifth generation definition"><b>Definition and characteristics of a Fifth-generation fighter:</b></h4>
+   Harrigian, J. and Morosko, M. (2017). Fifth Generation Air Combat - Joint Air Power Competence Centre. [online] <a href="https://www.japcc.org/articles/fifth-generation-air-combat/" target="_blank" rel="noopener">www.japcc.org</a>. Available at: <a href="https://www.japcc.org/articles/fifth-generation-air-combat/" target="_blank" rel="noopener">https://www.japcc.org/articles/fifth-generation-air-combat/</a> [Accessed 28 Oct. 2025]
+ 	 
+   <h4 id="Top speed of F35B"><b>Top speed of F35B:</b></h4>
+   Air, R. (2024). F-35B Lightning. [online] Royal Air Force. Available at: <a href="https://www.raf.mod.uk/aircraft/current-aircraft/lightning-f35b/" target="_blank" rel="noopener">https://www.raf.mod.uk/aircraft/current-aircraft/lightning-f35b/</a> [Accessed 28 Oct. 2025]
    <hr>
 
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
@@ -224,9 +218,8 @@
     const IntroductionCount = displayWordCount("IntroductionContent");
     const AnalysisCount = displayWordCount("Analysis_and_discussionContent");
     const AbstractCount = displayWordCount("AbstractContent");
-    const ReferencesCount = displayWordCount("ReferencesContent");
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount + AbstractCount + ReferencesCount;
+    const totalWordCount = IntroductionCount + AnalysisCount + AbstractCount;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
