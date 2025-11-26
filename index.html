@@ -19,7 +19,7 @@
    <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
    <h2>Student URN: 6922896</h2>
   <hr>
-  <h2 style=”font-family:calibri:”><b>Conference paper: The Insane Engineering of the F35B Lightning II</b></h2>
+  <h2 style="font-family:calibri;"><b>Conference paper: The Insane Engineering of the F35B Lightning II</b></h2>
   <hr>
      
      
@@ -56,6 +56,96 @@
       margin-left: 250px;
     }
   </style>
+
+  <style>
+    /* TOC styles  */
+    nav.toc {
+      width: 300px;
+      background:#f8fbff;
+      border:1px solid #e6eef8;
+      padding:12px;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(10,20,30,0.04);
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin-bottom:16px;
+    }
+    nav.toc h3 { margin:0 0 8px 0; font-size:1.05rem; }
+    nav.toc a { color:#0b66c3; text-decoration:none; display:block; padding:4px 0; }
+    nav.toc a:hover { text-decoration:underline; }
+
+    .toc-toggle {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+      background:transparent;
+      border:0;
+      padding:6px 0;
+      font:inherit;
+      color:inherit;
+      cursor:pointer;
+    }
+
+    .toc .sublist {
+      overflow:hidden;
+      max-height:0;
+      transition:max-height .36s ease, padding .2s ease;
+      padding-left: 0;
+      margin: 0;
+      list-style:none;
+    }
+    .toc .sublist.open {
+      max-height: 480px; /* enough for expanded list */
+      padding-top:8px;
+    }
+    .toc .sublist li { margin:6px 0 6px 12px; }
+    .toc .caret {
+      transition: transform .28s ease;
+    }
+    .toc .caret.open { transform: rotate(90deg); }
+
+    /* small responsive */
+    @media (max-width:700px) { nav.toc { width:100%; } }
+  </style>
+
+
+  <style>
+  /* Swivel nozzle image helpers */
+  .swivel-figure { margin: 0 0 1rem; }
+  .swivel {
+    max-width: 45%;
+    height: auto;
+    display: block;
+  }
+  .swivel.float-right { float: right; margin: 0 0.8rem 0.8rem 1rem; }
+  .swivel.float-left  { float: left;  margin: 0 1rem 0.8rem 0; }
+  .swivel.center { margin-left: auto; margin-right: auto; display:block; max-width:320px; }
+
+  /* ensure container clears floats */
+  #Analysis_and_discussionContent::after { content: ""; display: table; clear: both; }
+
+  /* small screens: disable floats and make image full width */
+  @media (max-width: 700px) {
+    .swivel, .swivel.float-right, .swivel.float-left { max-width: 100%; float: none; margin: 0 0 12px 0; }
+  }
+
+    /* also allow floating the entire <figure> so image + caption stay together */
+  .swivel-figure.float-right { float: right; margin: 0 0.8rem 0.8rem 1rem; }
+  .swivel-figure.float-left  { float: left;  margin: 0 1rem 0.8rem 0; }
+  .swivel-figure.center { margin-left: auto; margin-right: auto; display:block; max-width:320px; }
+
+  /* ensure caption sits under the floated figure */
+  .swivel-figure figcaption {
+    display: block;
+    clear: both;
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+  }
+  /* adjust image inside floated figure to take full figure width */
+  .swivel-figure .swivel { max-width: 100%; height: auto; }
+</style>
 </head>
  
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,6 +155,8 @@
     </style>
   <body style="background-color:#FFFFFF;margin-left:50px;">
 
+    
+
 
 
 <!table of contents>
@@ -73,22 +165,25 @@
     
     <table class="ex1">
     
-    <tr>
-    <th><h3>Table of contents</h3></th>
-    </tr>
-    <tr>
-    <td><a href="#Abstract">Abstract</a></td>
-    </tr>
-    <tr>
-    <td><a href="#Introduction">Introduction</a></td>
-    </tr>
-    <tr>
-    <td><a href="#Analysis_and_discussion">Analysis and discussion</a></td>
-    </tr>
-    <tr>
-    <td><a href="#References">References</a></td>
-    </tr>
-    </table>
+    <nav class="toc" aria-label="Table of contents">
+    <h4>Table of Contents</h4>
+    <ul>
+      <li><a href="#Abstract">Abstract</a></li>
+      <li><a href="#Introduction">Introduction</a></li>
+      <li>
+        <button class="toc-toggle" aria-expanded="false" aria-controls="analysis-sublist">
+          <span>Analysis and discussion</span>
+          <span class="caret">▶</span>
+        </button>
+        <ul id="analysis-sublist" class="sublist" role="region" aria-hidden="true">
+          <li><a href="#vtol-system">VTOL system</a></li>
+          <li><a href="#electronic-warfare">Electronic Warfare</a></li>
+          <!-- add more subsection links here -->
+        </ul>
+      </li>
+      <li><a href="#References">References</a></li>
+    </ul>
+  </nav>
     
     
     <!--Abstract section-->
@@ -97,9 +192,7 @@
   <hr>
   <h3 id="Abstract">Abstract</h3> 
   <p class="ex1">
-  <pre id="AbstractContent">
   Summarise F35B content here
-  </pre>
   </p>
 
 
@@ -108,12 +201,17 @@
 
 
     
-  <hr>
-  <h3 id="Introduction">Introduction</h3>
-  <p class="ex1">
-  <p id="IntroductionContent">
-   In the American Air Force, there exists a fleet of fighter jets that display engineering and technology of different generations. The class of fighter jets containing the most advanced and cutting-edge technology/engineering are known as the fifth-generation fighters. These jets are “capable of operating effectively in highly contested combat environments” against the “presence of the most capable current air and ground threats” <a href="#Fifth generation definition"><b>(Harrigian and Morosko, 2017)</b></a>. Currently in operation fifth-generation aircraft include the F-35B Lightning II, the main subject of this webpage, and the F-22A Raptor, each aircraft belonging to the Air Force and the US Marine Corps respectively. Just to go into some detail, there are many characteristics of these aircrafts that clearly distinguishes them from the older aircrafts: “multi-spectral low observable (LO) design features” make detection even more difficult with even the most advanced detection technology, “integrated avionics”<a href="#Fifth generation definition"><b>(Harrigian and Morosko, 2017)</b></a> which simultaneously manages several systems and data to provide real time communication and aerial dominance, although some fourth-generation fighters have thrust vectoring most fifth-generation aircrafts improve the use of it to achieve supermanoeuvrability. These are just some of the key characteristics to be named, which will be further explained in detail in the analysis and discussion section.  The F35b lightning is arguably the most advanced fighter jet up to date and is the latest operational American fighter jet. It’s classified as a fifth-generation aircraft capable of climbing to speeds of Mach 1.6 <a href="#Top speed of F35B"><b>(Air, 2024)</b></a>, which is 1.6 times the speed of sound! It’s equipped with a single engine and VTOL (Vertical Take Off and Landing) system which allows the aircraft to take off from short runaways and land like a helicopter, this is why you’ll see the U.S. Marine Corps utilising them as they can operate from assault ships despite the short runway length. 
-  </p>
+<hr>
+<h3 id="Introduction">Introduction</h3>
+<div class="ex1" id="IntroductionContent">
+   Within the United States Air Force, there exists a fleet of fighter jets that display engineering and technology of different generations. 
+   The class of fighter jets containing the most advanced and cutting-edge technology/engineering are known as the fifth-generation fighters. 
+   These jets are “capable of operating effectively in highly contested combat environments” against the “presence of the most capable current air and ground threats” <a href="#Fifth generation definition"><b>(Harrigian and Morosko, 2017)</b></a>. 
+   Currently in operation fifth-generation aircraft include the F-35B Lightning II, the main subject of this webpage, and the F-22A Raptor, each aircraft belonging to the US Marine Corps and the Air Force respectively. 
+   Just to go into some detail, there are many characteristics of these aircraft that clearly distinguish them from the older aircraft: “multi-spectral low observable (LO) design features” make detection even more difficult with even the most advanced detection technology, “integrated avionics”<a href="#Fifth generation definition"><b>(Harrigian and Morosko, 2017)</b></a> which simultaneously manages several systems and data to provide real time communication and aerial dominance, although some fourth-generation fighters have thrust vectoring most fifth-generation aircraft improve the use of it to achieve supermanoeuvrability. 
+   These are just some of the key characteristics to be named, which will be further explained in detail in the analysis and discussion section.  The F35b lightning is arguably the most advanced fighter jet up to date and is the latest operational American fighter jet. 
+   It’s classified as a fifth-generation aircraft capable of climbing to speeds of Mach 1.6 <a href="#Top speed of F35B"><b>(Air, 2024)</b></a>, which is 1.6 times the speed of sound! It’s equipped with a single engine and VTOL (Vertical Take Off and Landing) system which allows the aircraft to take off from short runaways and land like a helicopter, this is why you’ll see the U.S. Marine Corps utilising them as they can operate from assault ships despite the short runway length. 
+</div>
 
 
 
@@ -122,11 +220,23 @@
 
     
    <hr>
-   <h3 id="Analysis_and_discussion">Analysis and discussion</h3>
-   <p class="ex1">
-   <p id="Analysis_and_discussionContent">
-   hello
-   </p>
+<h3 id="Analysis_and_discussion">Analysis and discussion</h3>
+<div class="ex1" id="Analysis_and_discussionContent">
+    <h4 id="vtol-system"><b>The VTOL system</b></h4>
+    <p>
+        As previously mentioned, the F35B is equipped with a VTOL system. It achieves this by having the single engine nozzle separated into three rotating parts called the “three bearing swivel module” (3BSM). This allows for a 45° and then a 90° vertical rotation of the thrust direction as shown in figure 1
+      <figure class="swivel-figure float-right">
+        <img class="swivel" src="swivelnozzle.png" width="300" height="149" alt="Swivel nozzle">
+        <figcaption>Figure 1: Three bearing swivel module (3BSM)</figcaption>
+      </figure>
+    </p>
+    <p>
+        The single engine can produce “20000 lbf of thrust” <a href="#Rolls-Royce Lift System"><b>(Rolls-Royce, 2023)</b></a> which amounts to around 9000 kg or 9 tonnes, roughly the force generated from the weight of a large truck on earth.
+    </p>
+
+    <h4 id="electronic-warfare"><b>Electronic Warfare</b></h4>
+    <p>...</p>
+</div>
 
 
     <!--References section-->
@@ -142,6 +252,10 @@
  	 
    <h4 id="Top speed of F35B"><b>Top speed of F35B:</b></h4>
    Air, R. (2024). F-35B Lightning. [online] Royal Air Force. Available at: <a href="https://www.raf.mod.uk/aircraft/current-aircraft/lightning-f35b/" target="_blank" rel="noopener">https://www.raf.mod.uk/aircraft/current-aircraft/lightning-f35b/</a> [Accessed 28 Oct. 2025]
+   
+   <h4 id="Rolls-Royce Lift System"><b>Rolls-Royce Lift System</b></h4>
+   Rolls-Royce (2023). Rolls-Royce Lift System. [online] Rolls-Royce LiftSystem. Available at: <a href="https://www.rolls-royce.com/~/media/Files/R/Rolls-Royce/documents/defence/VCOMB-4202-Rolls-Royce-LiftSystem-datasheet.pdf" target="_blank" rel="noopener>">https://www.rolls-royce.com/~/media/Files/R/Rolls-Royce/documents/defence/VCOMB-4202-Rolls-Royce-LiftSystem-datasheet.pdf</a> [Accessed 28 Oct. 2025].
+  </p>
    <hr>
 
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
@@ -217,15 +331,122 @@
     // Calculate word count for each section and accumulate the total
     const IntroductionCount = displayWordCount("IntroductionContent");
     const AnalysisCount = displayWordCount("Analysis_and_discussionContent");
-    const AbstractCount = displayWordCount("AbstractContent");
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount + AbstractCount;
+    const totalWordCount = IntroductionCount + AnalysisCount;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
   // Run the function for specific sections and display total count when the page loads
   window.onload = displayTotalWordCount;
 </script>
+
+
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////// Smooth scroll and highlight /////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<style>
+  /* enable native smooth scrolling */
+  html { scroll-behavior: smooth; }
+
+  /* highlight style for references */
+  .ref-highlight {
+    background-color: #0f8cf359; 
+    transition: background-color 1.6s ease;
+  }
+
+  /* small margin so referenced heading isn't hidden behind any fixed UI */
+  .ref-target { scroll-margin-top: 2rem; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  function highlightReferenceById(id) {
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('ref-highlight');
+    void el.offsetWidth;
+    el.classList.add('ref-highlight');
+    setTimeout(() => el.classList.remove('ref-highlight'), 2500);
+  }
+
+  // Smooth-scroll to target and highlight it; update hash without jump
+  function goToReference(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    // ensure element has the helper class so scroll-margin-top applies
+    target.classList.add('ref-target');
+    // smooth scroll (native) and center the reference in view
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // update the URL hash cleanly
+    history.pushState(null, '', `#${id}`);
+    highlightReferenceById(id);
+  }
+
+  // handle clicks on in-page links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      const id = href.slice(1);
+      const target = document.getElementById(id);
+      if (!target) return; // external anchors or missing targets fall back to default
+      e.preventDefault();
+      goToReference(id);
+    });
+  });
+
+  // handle page load with a hash (direct link / back button)
+  if (location.hash) {
+    const id = location.hash.slice(1);
+    // tiny timeout so DOM layout is stable
+    setTimeout(() => goToReference(id), 50);
+  }
+
+  // highlight on hashchange (back/forward)
+  window.addEventListener('hashchange', () => {
+    const id = location.hash.slice(1);
+    if (id) highlightReferenceById(id);
+  });
+});
+</script>
+
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- /////////////////////////// Collapsible TOC submenu ///////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.toc-toggle');
+    const sublist = document.getElementById('analysis-sublist');
+    const caret = document.querySelector('.toc .caret');
+
+    if (!toggle || !sublist) return;
+
+    toggle.addEventListener('click', () => {
+      const isOpen = sublist.classList.toggle('open');
+      sublist.setAttribute('aria-hidden', !isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      caret.classList.toggle('open', isOpen);
+      // if opening, ensure visible area after smooth scroll
+      if (isOpen) sublist.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    // Optional: open submenu when a subsection link is clicked externally (deep link)
+    function openIfTargetInSublist() {
+      const id = location.hash.slice(1);
+      if (!id) return;
+      if (Array.from(sublist.querySelectorAll('a')).some(a => a.getAttribute('href') === `#${id}`)) {
+        sublist.classList.add('open');
+        sublist.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        caret.classList.add('open');
+      }
+    }
+    openIfTargetInSublist();
+    window.addEventListener('hashchange', openIfTargetInSublist);
+  });
+</script>
+
 
 
 
