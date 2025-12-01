@@ -232,7 +232,7 @@
         As previously mentioned, the F35B is equipped with a STOVL system. It achieves this by separating the single nozzle into three rotating segments collectively called the “three bearing swivel module” (3BSM). This allows for a 45° and then a 95° vertical rotation of the thrust direction as shown in Figure 1, this allows for short runway take off as lift and thrust can now be simultaneously produced.
       <!-- Figure 1 placement-->
         <figure class="swivel-figure float-right">
-        <img class="swivel" src="swivelnozzle.png" width="400" height="250" alt="Swivel nozzle">
+        <img class="swivel" src="swivelnozzle.png" width="500" height="350" alt="Swivel nozzle">
         <figcaption>Figure 1: Three bearing swivel module (3BSM) <a href="#3BSM"><b>(Stratasys Inc. and Reddioui, 2025)</b></a></figcaption>
       </figure>
     </p>
@@ -244,7 +244,7 @@
        This helps stabilize the aircraft in hover mode, in other words aid in the aircraft’s roll (side to side) axis during vertical flight modes. These three components work in unison to make up the STOVL system as shown in Figure 2 below.
        <!-- Figure 2 placement-->
        <figure class="swivel-figure float-right" style="clear: both;">
-        <img class="swivel" src="STOVL system.png" width="599" height="270" alt="STOVL system diagram">
+        <img class="swivel" src="STOVL system.png" width="699" height="370" alt="STOVL system diagram">
         <figcaption>Figure 2: STOVL system <a href="#STOVL-system-diagram"><b>(Kit, 2019)</b></a></figcaption>
       </figure>
       </p>
@@ -258,11 +258,12 @@
        When it comes to radar detection, specular reflection (where the angle of incidence is equal to the angle of reflection of the radar wave) is the main principle that lets radar detection thrive so undoubtedly, the F35B contains designs that prevent specular reflection wherever possible.
        Since specular reflection occurs on smooth flat surfaces <a href="#specular-reflection"><b>(Warner and Jardine-Wright, 2025)</b></a>, many of the aircraft’s design features serrated edges and angled surfaces, this is why you see a v-tail configuration instead of the usual vertical tail. 
        You’d think this would harm the manoeuvrability of the aircraft however this configuration actually aids in lift and yaw as shown in Figure 3.
-       These choices in design are known to be called low-observable stealth technology
+       In addition, engineers implemented radar scattering tape and radar absorbing material (RAM), the incident radar waves would be absorbed into the jet and converted to heat. Last but probably obvious at this point, the F35B has an internal weapons bay where the missiles are stored which is essential to keep radar waves reflecting off the missiles.
+       These design techniques are known to be called low-observable stealth technology
     </p>
     <!-- Figure 3 placement-->
      <figure class="swivel-figure float-right" style="clear: both;">
-        <img class="swivel" src="vtail.png" width="400" height="300" alt="vtail configuration">
+        <img class="swivel" src="vtail.png" width="500" height="400" alt="vtail configuration">
         <figcaption>Figure 3: V-tail workings <a href="#V-tail-configuration"><b>(Yadav, 2014)</b></a></figcaption>
       </figure>
 </div>
@@ -386,6 +387,23 @@
   window.onload = displayTotalWordCount;
 </script>
 
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ///////////////////////// Smooth scroll polyfill (for unsupported css on school computers) /////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+<script>
+  // Safe polyfill initialization — only run if polyfill loaded successfully
+  try {
+    window.__forceSmoothScrollPolyfill__ = true;
+    if (typeof smoothscroll !== 'undefined' && typeof smoothscroll.polyfill === 'function') {
+      smoothscroll.polyfill();
+    }
+  } catch (e) {
+    // Polyfill failed to load or initialize — fallback to native smooth-scroll
+    console.warn('Smoothscroll polyfill init failed; using native smooth-scroll:', e.message);
+  }
+</script>
+
 
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ///////////////////////// Smooth scroll and highlight /////////////////////////// -->
@@ -416,6 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => el.classList.remove('ref-highlight'), 2500);
   }
 
+  
   // Smooth-scroll to target and highlight it; update hash without jump
   function goToReference(id) {
     const target = document.getElementById(id);
@@ -456,6 +475,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+
 
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- /////////////////////////// Collapsible TOC submenu ///////////////////////////// -->
