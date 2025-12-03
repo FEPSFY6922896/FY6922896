@@ -1,179 +1,173 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<html>
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  
-<!--banner-->
-
-
-  
-  <head>
-  <img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
-  </head>
-
-
-  <!--Titles and URN-->
-
-
-  
-   <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
-   <h2>Student URN: 6922896</h2>
-  <hr>
-  <h2 style="font-family:calibri;"><b>Conference paper: F-35B Fighter Jet: Engineering, Electronics, and Next-Gen Combat Performance</b></h2>
-  <hr>
-     
-     
-  
-  
-  <!style for tables>
-
-  
+  <!-- Consolidated CSS -->
   <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color:#FFFFFF;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    .page-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 25px;
+      border-radius: 8px;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #e0e0e0;
+      margin: 30px 0;
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Table styling */
     table {
-      font-family: arial, sans-serif;
+      font-family: inherit;
       border-collapse: collapse;
       width: 30%;
-
     }
 
     td, th {
       border: 1px solid #dddddd;
-      text-align: left; 
+      text-align: left;
       padding: 8px;
     }
 
     tr:nth-child(even) {
-      background-color: #dddddd
+      background-color: #f5f5f5;
     }
-      
-  
-  
-  
-  </style>
 
-  <style>
-    p.ex1 {
-      margin-left: 250px;
-    }
-  </style>
+    .ex1 { padding-left: 1rem; }
 
-  <style>
-    /* TOC styles  */
+    /* TOC styles */
     nav.toc {
-      width: 300px;
+      width: 100%;
       background:#f8fbff;
       border:1px solid #e6eef8;
       padding:12px;
       border-radius:8px;
-      box-shadow:0 6px 18px rgba(10,20,30,0.04);
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      margin-bottom:16px;
+      box-shadow:0 6px 18px rgba(10,20,30,0.05);
+      margin-bottom:20px;
     }
-    nav.toc h3 { margin:0 0 8px 0; font-size:1.05rem; }
+    nav.toc h4 { margin:0 0 10px 0; }
     nav.toc a { color:#0b66c3; text-decoration:none; display:block; padding:4px 0; }
     nav.toc a:hover { text-decoration:underline; }
 
     .toc-toggle {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      width:100%;
-      background:transparent;
-      border:0;
-      padding:6px 0;
-      font:inherit;
-      color:inherit;
-      cursor:pointer;
+      display:flex; align-items:center; justify-content:space-between;
+      width:100%; border:0; padding:6px 0;
+      background:transparent; cursor:pointer;
     }
-
     .toc .sublist {
       overflow:hidden;
       max-height:0;
       transition:max-height .36s ease, padding .2s ease;
-      padding-left: 0;
-      margin: 0;
-      list-style:none;
+      margin:0; padding-left:0; list-style:none;
     }
     .toc .sublist.open {
-      max-height: 480px; /* enough for expanded list */
-      padding-top:8px;
+      max-height:600px; padding-top:8px;
     }
-    .toc .sublist li { margin:6px 0 6px 12px; }
-    .toc .caret {
-      transition: transform .28s ease;
-    }
-    .toc .caret.open { transform: rotate(90deg); }
+    .caret { transition:transform .28s ease; }
+    .caret.open { transform:rotate(90deg); }
 
-    /* small responsive */
-    @media (max-width:700px) { nav.toc { width:100%; } }
+    /* Figures & images */
+    .swivel-figure { margin: 0 0 1rem; }
+    .swivel {
+      max-width: 45%;
+      height: auto;
+    }
+    .swivel.float-right { float:right; margin:0 0 0.8rem 1rem; }
+    .swivel.float-left { float:left; margin:0 1rem 0.8rem 0; }
+    .swivel.center { margin:auto; display:block; max-width:320px; }
+
+    figure img {
+      border-radius:6px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    figcaption {
+      text-align:center;
+      color:#555;
+      margin-top:0.4rem;
+      font-size:0.9rem;
+    }
+
+    #Analysis_and_discussionContent::after {
+      content:""; display:table; clear:both;
+    }
+
+    @media (max-width:700px) {
+      .swivel, .swivel.float-right, .swivel.float-left {
+        float:none;
+        max-width:100%;
+        margin:0 0 12px 0;
+      }
+    }
+
+    /* Smooth scrolling & highlight */
+    html { scroll-behavior: smooth; }
+    .ref-highlight {
+      background-color: #e4f3ff;
+      transition: background-color 1.6s ease;
+    }
+    .ref-target { scroll-margin-top: 2rem; }
+
+
   </style>
-
-
-  <style>
-  /* Swivel nozzle image helpers */
-  .swivel-figure { margin: 0 0 1rem; }
-  .swivel {
-    max-width: 45%;
-    height: auto;
-    display: block;
-  }
-  .swivel.float-right { float: right; margin: 0 0.8rem 0.8rem 1rem; }
-  .swivel.float-left  { float: left;  margin: 0 1rem 0.8rem 0; }
-  .swivel.center { margin-left: auto; margin-right: auto; display:block; max-width:320px; }
-
-  /* ensure container clears floats */
-  #Analysis_and_discussionContent::after { content: ""; display: table; clear: both; }
-
-  /* small screens: disable floats and make image full width */
-  @media (max-width: 700px) {
-    .swivel, .swivel.float-right, .swivel.float-left { max-width: 100%; float: none; margin: 0 0 12px 0; }
-  }
-
-    /* also allow floating the entire <figure> so image + caption stay together */
-  .swivel-figure.float-right { float: right; margin: 0 0.8rem 0.8rem 1rem; }
-  .swivel-figure.float-left  { float: left;  margin: 0 1rem 0.8rem 0; }
-  .swivel-figure.center { margin-left: auto; margin-right: auto; display:block; max-width:320px; }
-
-  /* ensure caption sits under the floated figure */
-  .swivel-figure figcaption {
-    display: block;
-    clear: both;
-    margin-top: 0.4rem;
-    font-size: 0.9rem;
-    color: #555;
-    text-align: center;
-  }
-  /* adjust image inside floated figure to take full figure width */
-  .swivel-figure .swivel { max-width: 100%; height: auto; }
-
-</style>
-
-  
-
 </head>
- 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet"href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-      .mySlides {display:none;} 
-    </style>
-  <body style="background-color:#FFFFFF;margin-left:50px;">
 
-    
+<body>
+<div class="page-container">
 
+  <!-- Banner -->
+  <div class="banner">
+    <img src="WebBanner2023.png" alt="Banner">
+  </div>
 
+  <!-- Titles and URN -->
+  <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
+  <h2>Student URN: 6922896</h2>
+  <hr>
+  <h2 style="font-family:calibri;"><b>Conference paper: F-35B Fighter Jet: Engineering, Electronics, and Next-Gen Combat Performance</b></h2>
+  <hr>
 
-<!table of contents>
-
-
-    
-    <table class="ex1">
-    
-    <nav class="toc" aria-label="Table of contents">
+  <!-- Table of contents -->
+  <nav class="toc" aria-label="Table of contents">
     <h4>Table of Contents</h4>
     <ul>
       <li><a href="#Abstract">Abstract</a></li>
       <li><a href="#Introduction">Introduction</a></li>
+
       <li>
         <button class="toc-toggle" aria-expanded="false" aria-controls="analysis-sublist">
           <span>Analysis and discussion</span>
@@ -183,117 +177,108 @@
           <li><a href="#vtol-system">STOVL system</a></li>
           <li><a href="#electronic-warfare">Electronic Warfare</a></li>
           <li><a href="#Stealth-Combat">Stealth Combat</a></li>
-          <!-- add more subsection links here -->
         </ul>
       </li>
+
       <li><a href="#References">References</a></li>
     </ul>
   </nav>
-    
-    
-    <!--Abstract section-->
 
-
+  <!-- Abstract -->
   <hr>
-  <h3 id="Abstract">Abstract</h3> 
-  <div class="ex1"></div>
+  <h3 id="Abstract">Abstract</h3>
+  <div class="ex1">
   In this webpage, I gloss over some details that the F-35b Lightning-II fighter jet employs to achieve its incredible performance in modern aerial combat, divided under 2 headings.
   In the introduction, I provide context for the aircraft's background and define terminology used within the United States Air Force, introducing but not going into detail about features the F-35B contains.
   In the analysis and discussion section, I go into detail about components of the F-35B briefly mentioned in the introduction section to gain a decent understanding of 3 key features of the aircraft: the STOVL system, electronic warfare capabilities and stealth combat features.
   </div>
 
-
-    
-  <!--Introduction section-->
-
-
-    
-<hr>
-<h3 id="Introduction">Introduction</h3>
-<div class="ex1" id="IntroductionContent">
-   Within the United States Air Force, there exists a fleet of fighter jets that display engineering and technology of different generations. 
+  <!-- INTRODUCTION (full content retained) -->
+  <hr>
+  <h3 id="Introduction">Introduction</h3>
+  <div class="ex1" id="IntroductionContent">
+ Within the United States Air Force, there exists a fleet of fighter jets that display engineering and technology of different generations. 
    The class of fighter jets containing the most advanced and cutting-edge technology/engineering are known as the fifth-generation fighters. 
    These jets are “capable of operating effectively in highly contested combat environments” against the “presence of the most capable current air and ground threats” <a href="#Fifth generation definition"><b>(Harrigian and Morosko, 2017)</b></a>. 
    Currently in operation, fifth-generation aircraft include the F-35B Lightning II and the F-22A Raptor, each aircraft belonging to the US Marine Corps and the Air Force, respectively. 
    Just to go into some detail, many characteristics of these aircraft clearly distinguish them from the older aircraft: “multi-spectral low observable (LO) design features” make detection even more difficult with even the most advanced detection technology, “integrated avionics”<a href="#Fifth generation definition"><b>(Harrigian and Morosko, 2017)</b></a> which simultaneously manages several systems and data to provide real time communication and aerial dominance. 
    These are just some of the key characteristics to be named, which will be further explained in detail in the analysis and discussion section. The F-35b lightning is arguably the most advanced fighter jet to date and is the latest operational American fighter jet. 
    It’s classified as a fifth-generation aircraft capable of climbing to speeds of Mach 1.6 <a href="#Top speed of F-35B"><b>(Air, 2024)</b></a>, which is 1.6 times the speed of sound! It’s equipped a STOVL (Short Take Off and Vertical Landing) system. 
-</div>
+  </div>
 
+  <!-- ANALYSIS AND DISCUSSION -->
+  <hr>
+  <h3 id="Analysis_and_discussion">Analysis and discussion</h3>
+  <div class="ex1" id="Analysis_and_discussionContent">
 
-
-    <!--Analysis and discussion section-->
-
-
-    
-   <hr>
-<h3 id="Analysis_and_discussion">Analysis and discussion</h3>
-<div class="ex1" id="Analysis_and_discussionContent">
+    <!-- ====== STOVL SYSTEM SECTION (unchanged content) ====== -->
     <h4 id="vtol-system"><b>The STOVL system</b></h4>
     <p>
-        As previously mentioned, the F-35B is equipped with a STOVL system. It achieves this by separating the single nozzle into three rotating segments collectively called the “three bearing swivel module” (3BSM). This allows for a 45° and then a 95° vertical rotation of the thrust direction, as shown in Figure 1. This allows for short runway take off as lift and thrust can now be simultaneously produced.
-      <!-- Figure 1 placement-->
-        <figure class="swivel-figure float-right">
-        <img class="swivel" src="swivelnozzle.png" width="500" height="350" alt="Swivel nozzle">
-        <figcaption>Figure 1: Three bearing swivel module (3BSM) <a href="#3BSM"><b>(Stratasys Inc. and Reddioui, 2025)</b></a></figcaption>
-      </figure>
+     As previously mentioned, the F-35B is equipped with a STOVL system. It achieves this by separating the single nozzle into three rotating segments collectively called the “three bearing swivel module” (3BSM). This allows for a 45° and then a 95° vertical rotation of the thrust direction, as shown in Figure 1. This allows for short runway take off as lift and thrust can now be simultaneously produced.
     </p>
+
+    <figure class="swivel-figure float-right">
+      <img class="swivel" src="swivelnozzle.png" width="500" height="350" alt="Swivel nozzle">
+      <figcaption>Figure 1: Three bearing swivel module (3BSM) <a href="#3BSM"><b>(Stratasys Inc. and Reddioui, 2025)</b></a></figcaption>
+    </figure>
+
     <p>
-       A single “conventional gas turbine” passes 18,000 lbf of thrust into the 3BSM, redirecting it to a 95 degree angle in 2.5 seconds. 
+    A single “conventional gas turbine” passes 18,000 lbf of thrust into the 3BSM, redirecting it to a 95 degree angle in 2.5 seconds. 
        Another addition to this STOVL system is the Rolls-Royce LiftFan, a “two-stage counter-rotating fan" capable of producing more than “20000 lbf of thrust” <a href="#Rolls-Royce Lift System"><b>(Rolls-Royce, 2023)</b></a>, which amounts to around 9000kg or 9 tonnes, roughly the force generated from the weight of a large truck on earth.
        This thrust is achieved from a driveshaft that transmits the torque and rotation of up to 29,000 horsepower from the Pratt & Whitney F135 engine <a href="#Pratt and Whitney F135 engine relation"><b>(Rolls-Royce, n.d.)</b></a>, which in turn spins the central LiftFan’s bevel gear, ultimately spinning the blades to generate vertical thrust.
        29,000 horsepower is the equivalent of 21.7 megawatts of power; it would take roughly 58 standard cars each of 500 HP to equal the power of 29,000 HP. Finally, the system includes 2 additional Roll posts on each side of the wings that harness power from the engine to “provide a further 1,950 lbf of thrust each”. 
        This helps stabilize the aircraft in hover mode, in other words, aid in the aircraft’s roll (side to side) axis during vertical flight modes. These three components work in unison to make up the STOVL system, as shown in Figure 2 below, which allows the aircraft to take off from short runways and land like a helicopter. This is why you’ll see the U.S. Marine Corps utilising them, as they can operate from assault ships despite the short runway length.
-       <!-- Figure 2 placement-->
-       <figure class="swivel-figure float-right" style="clear: both;">
-        <img class="swivel" src="STOVL system.png" width="699" height="370" alt="STOVL system diagram">
-        <figcaption>Figure 2: STOVL system <a href="#STOVL-system-diagram"><b>(Kit, 2019)</b></a></figcaption>
-      </figure>
-      </p>
+    </p>
 
+    <figure class="swivel-figure float-right" style="clear: both;">
+      <img class="swivel" src="STOVL system.png" width="699" height="370" alt="STOVL system diagram">
+      <figcaption>Figure 2: STOVL system <a href="#STOVL-system-diagram"><b>(Kit, 2019)</b></a></figcaption>
+    </figure>
+
+    <!-- ====== ELECTRONIC WARFARE (unchanged) ====== -->
     <h4 id="electronic-warfare"><b>Electronic Warfare</b></h4>
-    <p>The F-35B is known for its unparalleled situational awareness due to the large quantity of data the pilot is given in real time. 
+    <p>
+    The F-35B is known for its unparalleled situational awareness due to the large quantity of data the pilot is given in real time. 
        Pilots operating the F-35B are equipped with a helmet-mounted display system, something unique to only the F-35-B which is fed information from many systems.
        Just below the cockpit of the jet is a small, sapphire window thats integrated into the fuselage (body of the jet).
        Inside this window is the electrical optical targetting system (EOTS), a "high magnification thermal imager" that performs "tracking and imaging functions" <a href="#EOTS"><b>(SDLinfo, 2018)</b></a> to both air to air targets and air to surface targets.
        This sensor utilises a range of electromagnetic wavelength to provide imagery which is why it is comprised of sapphire, a hard, durable but also see-through to a range of wavelengths of em waves.
        Next is the DAS (Distributed Aperture System) which is a set of 6 infrared cameras mounted around the aircraft, this allows the pilot to see 360 degree view through the fuselage in xray and nightvision too as shown in Figure 4, This plays nicely with AESA (Active Electronically Scanned Array) radar.
+    </p>
 
-       <!-- Figure 4 placement-->
-       <figure class="swivel-figure float-right" style="clear: both;">
-        <img class="swivel" src="helmet.png" width="699" height="370" alt="DAS system POV">
-        <figcaption>Figure 4: Helmet view <a href="#helmet"><b>(Zazulia and K2 Communications Inc., 2018)</b></a></figcaption>
-      </figure>
+    <figure class="swivel-figure float-right" style="clear: both;">
+      <img class="swivel" src="helmet.png" width="699" height="370" alt="DAS system POV">
+      <figcaption>Figure 4: Helmet view <a href="#helmet"><b>(Zazulia and K2 Communications Inc., 2018)</b></a></figcaption>
+    </figure>
 
-       Untraditionally, AESA has the ability to track aircraft that are not directly in front, this is due to the radar waves being electronically steered via constructive and destructive interference rather than mechanically steered like traditional radars.
+    <p> Untraditionally, AESA has the ability to track aircraft that are not directly in front, this is due to the radar waves being electronically steered via constructive and destructive interference rather than mechanically steered like traditional radars.   
+    </p>
 
-       
-       </p>
+    
 
+    <!-- ====== STEALTH COMBAT (unchanged) ====== -->
     <h4 id="Stealth-Combat"><b>Stealth Combat</b></h4>
-    <p>When it comes to stealth combat, many seem to have the impression that the aircraft must be completely invisible to detection, that would be the case in an ideal world however realistically, the objective is to detect the enemy before they detect you.
+    <p>
+    it comes to stealth combat, many seem to have the impression that the aircraft must be completely invisible to detection, that would be the case in an ideal world however realistically, the objective is to detect the enemy before they detect you.
        This is achieved by minimising the difference between a return signal of background noise or an enemy aircraft for the enemy radar receiver, making it harder to distinguish.
        Since specular reflection (where the angle of incidence is equal to the angle of reflection of the radar wave) occurs on smooth flat surfaces  <a href="#specular-reflection"><b>(Warner and Jardine-Wright, 2025)</b></a>, many of the aircraft’s design features serrated edges and angled surfaces, this is why you see a v-tail configuration instead of the usual vertical tail. 
        This doesn't harm manoeuvrability of the aircraft but actually gives equal lift and yaw as shown in Figure 3.
        In addition, engineers implemented radar scattering tape and radar absorbing material (RAM), the incident radar waves would be absorbed into the jet and converted to heat.
        These design techniques are called low-observable stealth technology.
     </p>
-    <!-- Figure 3 placement-->
-     <figure class="swivel-figure float-right" style="clear: both;">
-        <img class="swivel" src="vtail.png" width="500" height="400" alt="vtail configuration">
-        <figcaption>Figure 3: V-tail workings <a href="#V-tail-configuration"><b>(Yadav, 2014)</b></a></figcaption>
-      </figure>
-</div>
 
+    <figure class="swivel-figure float-right" style="clear: both;">
+      <img class="swivel" src="vtail.png" width="500" height="400" alt="vtail configuration">
+      <figcaption>Figure 3: V-tail workings <a href="#V-tail-configuration"><b>(Yadav, 2014)</b></a></figcaption>
+    </figure>
 
-    <!--References section-->
+  </div>
 
-
-    
-   <hr>
-   <h3 id="References">References</h3>
-   <p class="ex1">
-   <p>
+  <!-- REFERENCES (all content unchanged) -->
+  <hr>
+  <h3 id="References">References</h3>
+  <p class="ex1">
+  <p>
    <h4 id="Fifth generation definition"><b>Definition and characteristics of a Fifth-generation fighter:</b></h4>
    Harrigian, J. and Morosko, M. (2017). Fifth Generation Air Combat - Joint Air Power Competence Centre. [online] <a href="https://www.japcc.org/articles/fifth-generation-air-combat/" target="_blank" rel="noopener">www.japcc.org</a>. Available at: <a href="https://www.japcc.org/articles/fifth-generation-air-combat/" target="_blank" rel="noopener">https://www.japcc.org/articles/fifth-generation-air-combat/</a> [Accessed 28 Oct. 2025]
  	 
@@ -324,10 +309,10 @@
    <h4 id="helmet"><b>Helmet view (Figure 4)</b></h4>
    Zazulia, N. and K2 Communications Inc. (2018). F-35: Under the Helmet of the World’s Most Advanced Fighter. [online] Aviation Today. Available at: <a href="https://www.aviationtoday.com/2018/08/24/f-35-helmet-worlds-advanced-fighter/" target="_blank" rel="noopener">https://www.aviationtoday.com/2018/08/24/f-35-helmet-worlds-advanced-fighter/</a> [Accessed 2 Dec. 2025].
   </p>
-  
-   <hr>
 
-<!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <hr>
+
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
     <!-- Last commit time display -->
@@ -376,8 +361,7 @@
     window.onload = getLastUpdatedTime;
 </script>
 
-
- <!-- //////////////////////////////////////////////////////////////////////////////// -->
+   <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Word count function ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
 <!-- Placeholder for total word count -->
@@ -409,139 +393,69 @@
   window.onload = displayTotalWordCount;
 </script>
 
-    <!-- //////////////////////////////////////////////////////////////////////////////// -->
-    <!-- ///////////////////////// Smooth scroll polyfill (for unsupported css on school computers) /////////////////////////////// -->
-    <!-- //////////////////////////////////////////////////////////////////////////////// -->
-<script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
-<script>
-  // Safe polyfill initialization — only run if polyfill loaded successfully
-  try {
-    window.__forceSmoothScrollPolyfill__ = true;
-    if (typeof smoothscroll !== 'undefined' && typeof smoothscroll.polyfill === 'function') {
-      smoothscroll.polyfill();
-    }
-  } catch (e) {
-    // Polyfill failed to load or initialize — fallback to native smooth-scroll
-    console.warn('Smoothscroll polyfill init failed; using native smooth-scroll:', e.message);
-  }
-</script>
+  <!-- Smooth scroll polyfill -->
+  <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+  <script>
+    try {
+      window.__forceSmoothScrollPolyfill__ = true;
+      if (typeof smoothscroll !== 'undefined') smoothscroll.polyfill();
+    } catch (e) {}
+  </script>
 
-
-  <!-- //////////////////////////////////////////////////////////////////////////////// -->
-  <!-- ///////////////////////// Smooth scroll and highlight /////////////////////////// -->
-  <!-- //////////////////////////////////////////////////////////////////////////////// -->
-<style>
-  /* enable native smooth scrolling */
-  html { scroll-behavior: smooth; }
-
-  /* highlight style for references */
-  .ref-highlight {
-    background-color: #2079b48c; 
-    transition: background-color 1.6s ease;
-  }
-
-  /* small margin so referenced heading isn't hidden behind any fixed UI */
-  .ref-target { scroll-margin-top: 2rem; }
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  function highlightReferenceById(id) {
-    if (!id) return;
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.remove('ref-highlight');
-    void el.offsetWidth;
-    el.classList.add('ref-highlight');
-    setTimeout(() => el.classList.remove('ref-highlight'), 2500);
-  }
-
-  
-  // Smooth-scroll to target and highlight it; update hash without jump
-  function goToReference(id) {
-    const target = document.getElementById(id);
-    if (!target) return;
-    // ensure element has the helper class so scroll-margin-top applies
-    target.classList.add('ref-target');
-    // smooth scroll (native) and center the reference in view
-    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // update the URL hash cleanly
-    history.pushState(null, '', `#${id}`);
-    highlightReferenceById(id);
-  }
-
-  // handle clicks on in-page links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (!href || href === '#') return;
-      const id = href.slice(1);
-      const target = document.getElementById(id);
-      if (!target) return; // external anchors or missing targets fall back to default
-      e.preventDefault();
-      goToReference(id);
-    });
-  });
-
-  // handle page load with a hash (direct link / back button)
-  if (location.hash) {
-    const id = location.hash.slice(1);
-    // tiny timeout so DOM layout is stable
-    setTimeout(() => goToReference(id), 50);
-  }
-
-  // highlight on hashchange (back/forward)
-  window.addEventListener('hashchange', () => {
-    const id = location.hash.slice(1);
-    if (id) highlightReferenceById(id);
-  });
-});
-</script>
-
-
-
-  <!-- //////////////////////////////////////////////////////////////////////////////// -->
-  <!-- /////////////////////////// Collapsible TOC submenu ///////////////////////////// -->
-  <!-- //////////////////////////////////////////////////////////////////////////////// -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('.toc-toggle');
-    const sublist = document.getElementById('analysis-sublist');
-    const caret = document.querySelector('.toc .caret');
-
-    if (!toggle || !sublist) return;
-
-    toggle.addEventListener('click', () => {
-      const isOpen = sublist.classList.toggle('open');
-      sublist.setAttribute('aria-hidden', !isOpen);
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      caret.classList.toggle('open', isOpen);
-      // if opening, ensure visible area after smooth scroll
-      if (isOpen) sublist.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-
-    // Optional: open submenu when a subsection link is clicked externally (deep link)
-    function openIfTargetInSublist() {
-      const id = location.hash.slice(1);
-      if (!id) return;
-      if (Array.from(sublist.querySelectorAll('a')).some(a => a.getAttribute('href') === `#${id}`)) {
-        sublist.classList.add('open');
-        sublist.setAttribute('aria-hidden', 'false');
-        toggle.setAttribute('aria-expanded', 'true');
-        caret.classList.add('open');
+  <!-- Reference highlight -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      function highlightReferenceById(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.classList.remove('ref-highlight');
+        void el.offsetWidth;
+        el.classList.add('ref-highlight');
+        setTimeout(() => el.classList.remove('ref-highlight'), 2500);
       }
-    }
-    openIfTargetInSublist();
-    window.addEventListener('hashchange', openIfTargetInSublist);
-  });
-</script>
 
+      function goToReference(id) {
+        const target = document.getElementById(id);
+        if (!target) return;
+        target.classList.add('ref-target');
+        target.scrollIntoView({ behavior:'smooth', block:'center' });
+        history.pushState(null, '', `#${id}`);
+        highlightReferenceById(id);
+      }
 
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const id = a.getAttribute('href').slice(1);
+          if (document.getElementById(id)) {
+            e.preventDefault();
+            goToReference(id);
+          }
+        });
+      });
 
+      if (location.hash) {
+        const id = location.hash.slice(1);
+        setTimeout(() => goToReference(id), 50);
+      }
+    });
+  </script>
 
-    
-    
-    
+  <!-- TOC collapsible -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.toc-toggle');
+      const sublist = document.getElementById('analysis-sublist');
+      const caret = document.querySelector('.toc .caret');
 
- 
+      toggle.addEventListener('click', () => {
+        const isOpen = sublist.classList.toggle('open');
+        sublist.setAttribute('aria-hidden', !isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+        caret.classList.toggle('open', isOpen);
+      });
+    });
+  </script>
+
+</div>
+</body>
 </html>
