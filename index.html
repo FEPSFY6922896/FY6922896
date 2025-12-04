@@ -142,6 +142,8 @@
     }
     .ref-target { scroll-margin-top: 2rem; }
 
+    
+
 
   </style>
 </head>
@@ -259,7 +261,7 @@
     <!-- ====== STEALTH COMBAT (unchanged) ====== -->
     <h4 id="Stealth-Combat"><b>Stealth Combat</b></h4>
     <p>
-    When it comes to stealth combat, many seem to have the impression that the aircraft must be completely invisible to detection, that would be the case in an ideal world however realistically, the objective is to detect the enemy before they detect you.
+    it comes to stealth combat, many seem to have the impression that the aircraft must be completely invisible to detection, that would be the case in an ideal world however realistically, the objective is to detect the enemy before they detect you.
        This is achieved by minimising the difference between a return signal of background noise or an enemy aircraft for the enemy radar receiver, making it harder to distinguish.
        Since specular reflection (where the angle of incidence is equal to the angle of reflection of the radar wave) occurs on smooth flat surfaces  <a href="#specular-reflection"><b>(Warner and Jardine-Wright, 2025)</b></a>, many of the aircraft’s design features serrated edges and angled surfaces, this is why you see a v-tail configuration instead of the usual vertical tail. 
        This doesn't harm manoeuvrability of the aircraft but actually gives equal lift and yaw as shown in Figure 3.
@@ -455,6 +457,23 @@
       });
     });
   </script>
+
+      <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ///////////////////////// Smooth scroll polyfill (for unsupported css on school computers) /////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+<script>
+  // Safe polyfill initialization — only run if polyfill loaded successfully
+  try {
+    window.__forceSmoothScrollPolyfill__ = true;
+    if (typeof smoothscroll !== 'undefined' && typeof smoothscroll.polyfill === 'function') {
+      smoothscroll.polyfill();
+    }
+  } catch (e) {
+    // Polyfill failed to load or initialize — fallback to native smooth-scroll
+    console.warn('Smoothscroll polyfill init failed; using native smooth-scroll:', e.message);
+  }
+</script>
 
 </div>
 </body>
